@@ -19,7 +19,7 @@
 	
 	<context:component-scan base-package="controller,logic,dao,aop"/>
 	<mvc:annotation-driven/>
-	<aop:aspectj-autoproxy/><!-- AOP설정  -->
+	<!-- <aop:aspectj-autoproxy/ --><!-- AOP설정  -->
 
 	<!-- 
 		http://localhost:8080/shop3/item/list.shop
