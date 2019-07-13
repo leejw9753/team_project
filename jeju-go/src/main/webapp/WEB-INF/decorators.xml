@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <decorators defaultdir="/decorator">
 	<decorator name="main" page="decorator.jsp">
-		<pattern>*.shop</pattern>
+		<pattern>*.jeju</pattern>
 	</decorator>
 	<!-- layout 제외 설정 -->
 	<excludes>
