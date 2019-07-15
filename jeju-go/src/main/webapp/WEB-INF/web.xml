@@ -15,7 +15,7 @@
 
 	<servlet>
 		<servlet-name>jeju-go</servlet-name>
-		<!-- 우리가 만들어준 컨트롤러/컨테이너를 만들어주는(스프링을 시작해주는) 역활을 해줌 -->
+		<!-- 우리가 만들어준 컨트롤러/컨테이너를 만들어주는(스프링을 시작해주는) 역할을 해줌 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
