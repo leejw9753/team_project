@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("user")
 public class Homecontroller {
-	@RequestMapping("home")
-	public ModelAndView Home() {
-		ModelAndView mav = new ModelAndView();
-		return mav;
-	}
+   @RequestMapping("*")
+   public ModelAndView Home() {
+      ModelAndView mav = new ModelAndView();
+      return mav;
+   }
 }
