@@ -6,6 +6,6 @@
 	<!-- layout 제외 설정 -->
 	<excludes>
 		<!-- <pattern>/board/imgupload*</pattern> -->
-<!-- 		<pattern>/admin/home*</pattern> -->
+		<pattern>/user/main.*</pattern>
 	</excludes>
 </decorators>

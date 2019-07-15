@@ -33,7 +33,6 @@ public class HotelController {
 	public ModelAndView register(HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		ModelAndView mav = new ModelAndView();
 		service.regist(request, mtfRequest);
-
 		return mav;
 	}
 
