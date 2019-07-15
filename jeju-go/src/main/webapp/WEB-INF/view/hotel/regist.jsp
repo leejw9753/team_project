@@ -71,7 +71,8 @@
           <h5 class="widgetheading">사진</h5><input multiple="multiple" type="file" name="photoname">
           <div class="validation"></div>
           </div>
-          <button type="submit" class="btn btn-default">숙소등록</button>
+          <br>
+          <button type="submit" class="btn btn-default" style="align-content: center;">숙소등록</button>
         </form>
       </div>
 	</div>

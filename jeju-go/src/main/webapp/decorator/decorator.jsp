@@ -34,7 +34,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
           <div class="container-fluid">
             <div class="navbar-header">
               <div class="navbar-brand">
-                <a href="index.html"><h1>JeJu Go</h1></a>
+                <a href="../user/main.jeju"><h1>JeJu Go</h1></a>
               </div>
             </div>
             <div class="menu">
