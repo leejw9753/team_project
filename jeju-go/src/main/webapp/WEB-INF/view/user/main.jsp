@@ -210,9 +210,6 @@ function search_check(num) {
 				</div>
 			</div>
 		</div>
-		<button type="button"
-			class="w3-button w3-padding-large w3-green w3-margin-bottom"
-			onclick="document.getElementById('subscribe').style.display='none'">회원가입</button>
 	</form:form>
    </body>
 </html>
