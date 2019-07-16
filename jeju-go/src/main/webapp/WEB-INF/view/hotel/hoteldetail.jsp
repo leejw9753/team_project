@@ -96,15 +96,7 @@ function showDivs(n) {
         </div>
       </div>
     </c:forEach>    
-    
-    
-    
-    
     <input type="button" onclick="location.href='roomregist.jeju?no=${h.no}'" value="방등록하기">
-    
-    
-    
-    
   </div>
 </body>
 </html>

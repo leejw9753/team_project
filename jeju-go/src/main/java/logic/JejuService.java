@@ -71,7 +71,6 @@ public class JejuService {
 	public List<Hotel> list() {
 		List<Hotel> hotel = new ArrayList<Hotel>();
 		List<Integer> no = hoteldao.nolist();
-
 		for (Integer i : no) {
 			hotel.add(selectOne(i));
 		}
@@ -80,7 +79,7 @@ public class JejuService {
 
 	public Hotel selectOne(Integer i) {
 		Hotel h = hoteldao.selectOne(i);
-		List<Photo> p = photodao.selectOne2(i, "¼÷¼Ò");
+		List<Photo> p = photodao.selectOne2(i, "0");
 		h.setPhoto(p);
 		h.setPhotourl(p.get(0).getPhotourl());
 		return h;

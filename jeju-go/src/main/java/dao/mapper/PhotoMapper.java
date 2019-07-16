@@ -15,7 +15,7 @@ public interface PhotoMapper {
 	@Select("select * from photo where no = #{no}")
 	List<Photo> selectOne(Integer no);
 
-	@Select("select * from photo where no = #{no} and type=#{type}")
+	@Select("select * from photo where no = #{no} and roomnum=#{roomnum}")
 	List<Photo> selectOne2(Map<String, Object> param);
 
 }

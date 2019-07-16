@@ -25,10 +25,10 @@ public class PhotoDao {
 	public List<Photo> selectOne(Integer i) {
 		return sqlSession.getMapper(PhotoMapper.class).selectOne(i);
 	}
-	public List<Photo> selectOne2(Integer no,String name) {
+	public List<Photo> selectOne2(Integer no,String roomnum) {
 		param.clear();
 		param.put("no", no);
-		param.put("type", name);
+		param.put("roomnum", roomnum);
 		return sqlSession.getMapper(PhotoMapper.class).selectOne2(param);
 	}
 }
