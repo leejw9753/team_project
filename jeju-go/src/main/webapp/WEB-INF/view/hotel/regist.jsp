@@ -32,7 +32,56 @@
 </script>
 </head>
 <body>
-	<form name="registerform" method="post" action="register.jeju" enctype="multipart/form-data" onsubmit="return inputchk(this)">
+	<div class="container">
+    <div class="row">
+        <div class="recent">
+          <h2 class="widgetheading" style="text-align: center;">Hotel Regist</h2>
+        </div>
+        <div id="sendmessage">Your message has been sent. Thank you!</div>
+        <div id="errormessage"></div>
+        <form name="registerform" method="post" action="register.jeju" enctype="multipart/form-data" onsubmit="return inputchk(this)">
+          <div class="form-group">
+           <!--  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+            <input type="text" name="hname" class="form-control" placeholder="숙소 명"/>
+            <div class="validation"></div>
+          </div>
+          <div class="form-group">
+           <!--  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" /> -->
+	            <input type="text" class="form-control" name="tel1" placeholder="전화번호 앞자리">-<input type="text" class="form-control" name="tel2" placeholder="전화번호 가운데자리"/>-<input type="text" class="form-control" name="tel3" placeholder="전화번호 뒷자리"/>
+            <div class="validation"></div>
+          </div>
+          <div class="form-group">
+<!--             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
+           	<input type="text" name="location1" class="form-control" placeholder="위도"/>
+            <div class="validation"></div>
+          </div>
+          <div class="form-group">
+<!--             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
+           	<input type="text" class="form-control" name="location2" placeholder="경도"/>
+            <div class="validation"></div>
+          </div>
+          <div class="form-group">
+          	<input type="text" class="form-control" name="address" placeholder="주소"/>
+            <div class="validation"></div>
+          </div>
+          <br>
+          <div class="form-group">
+          	<h5 class="widgetheading">숙소 소개</h5>
+            <textarea class="form-control" name="contents" rows="5" placeholder="숙소 소개"></textarea><script>CKEDITOR.replace("contents")</script>
+            <div class="validation"></div>
+          </div>
+          <br>
+          <div class="form-group">
+          <h5 class="widgetheading">사진</h5><input multiple="multiple" type="file" name="photoname">
+          <div class="validation"></div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default" value="숙소등록">숙소등록</button>
+        </form>
+      </div>
+	</div>
+
+	<!-- <form name="registerform" method="post" action="register.jeju" enctype="multipart/form-data" onsubmit="return inputchk(this)">
 		<h2>호텔 등록</h2>
 		<table>
 			<tr><td>숙소 명</td>
@@ -41,11 +90,8 @@
 			<tr><td>전화번호</td>
 				<td><input type="text" name="tel1"> - <input type="text" name="tel2"> - <input type="text" name="tel3"></td>
 			</tr>
-			<tr><td>주소</td>
-				<td>주소: <input type="text" name="address"></td>
-			</tr>
 			<tr><td>위치</td>
-				<td>위도: <input type="text" name="lat">&nbsp;경도: <input type="text" name="lng"></td>
+				<td>위도: <input type="text" name="location1">&nbsp;경도: <input type="text" name="location2"></td>
 			</tr>
 			<tr><td>숙소사진</td>
 				<td colspan="2"><input multiple="multiple" type="file" name="photoname"></td>
@@ -57,6 +103,6 @@
 			<tr><td colspan="2"><input type="submit" value="숙소등록"></td>
 			</tr>
 		</table>	
-	</form>
+	</form> -->
 </body>
-</html>
+</html> 
