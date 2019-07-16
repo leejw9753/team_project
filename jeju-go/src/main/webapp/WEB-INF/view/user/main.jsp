@@ -35,6 +35,18 @@ body {
 		background-attachment: fixed,			fixed,				fixed;
 	}
 </style>
+<script type="text/javascript">
+function search_check(num) {
+   if (num == '1') {
+      document.getElementById("searchP").style.display = "none";
+      document.getElementById("searchI").style.display = "";   
+   } else {
+      document.getElementById("searchI").style.display = "none";
+      document.getElementById("searchP").style.display = "";
+   }
+   
+}
+</script>
 </head>
    <body class="is-preload">
       <!-- Wrapper -->
@@ -77,7 +89,7 @@ body {
                 <div id="signin" class="w3-modal" style="display: none;">
          <div class="w3-modal-content w3-animate-zoom w3-padding-large">
             <div class="w3-container w3-white w3-center">
-               <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+               <i onclick="document.getElementById('signin').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
                <h2 class="w3-wide">Sign In</h2>
                <p>회원가입에 필요한 정보를 입력하세요.</p>
                <p>
@@ -104,7 +116,7 @@ body {
       <div id="login" class="w3-modal" style="display: none;">
          <div class="w3-modal-content w3-animate-zoom w3-padding-large">
             <div class="w3-container w3-white w3-center">
-               <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+               <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
                <h2 class="w3-wide">LogIn</h2>
                <p>로그인 정보를 입력하세요.</p>
                <p>
@@ -140,5 +152,67 @@ body {
             }
          </script>
 
+<!-- 아이디/비밀번호 찾기 부분 -->
+	<form:form modelAttribute="user" method="post" action="userSearch.jeju">
+		<div id=searchid class="w3-modal" style="display: none;">
+			<div class="w3-modal-content w3-animate-zoom w3-padding-large">
+				<div class="w3-container w3-white w3-center">
+					<i
+						onclick="document.getElementById('searchid').style.display='none'"
+						class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
+					<h2 class="w3-wide">아이디/비밀번호 찾기</h2>
+					<p>인증된 이메일만 정보 찾기가 가능합니다 .</p>
+					<div style="margin-bottom: 10px;"
+						class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="search_1"
+							name="search_total" onclick="search_check(1)" checked="checked">
+						<label class="custom-control-label font-weight-bold text-white"
+							for="search_1"></label><p>아이디 찾기</p>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="search_2"
+							name="search_total" onclick="search_check(2)"> <label
+							class="custom-control-label font-weight-bold text-white"
+							for="search_2"></label><p>비밀번호 찾기</p>
+					</div>
+					<div id="searchI">
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputName_1"></label><p>이름</p>
+							<div>
+								<input type="text" class="form-control" id="username"
+									name="username" placeholder="ex) 송문준">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputPhone_1"></label><p>휴대폰번호</p>
+							<div>
+								<input type="text" class="form-control" id="Phone" name="Phone"
+									placeholder="ex) 01077779999">
+							</div>
+						</div>
+						<div class="form-group"></div>
+					</div>
+					<div id="searchP" style="display: none;">
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputId" ></label><p>아이디(이메일)</p>
+							<div>
+								<input type="text" class="form-control" id="userid" style="text-transform: lowercase;"
+									name="userid" placeholder="ex)goodee@aaa.bbb">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<button id="searchBtn2" type="button"
+							class="btn btn-primary btn-block">확인</button>
+						<a class="btn btn-danger btn-block"
+							href="${pageContext.request.contextPath}">취소</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button type="button"
+			class="w3-button w3-padding-large w3-green w3-margin-bottom"
+			onclick="document.getElementById('subscribe').style.display='none'">회원가입</button>
+	</form:form>
    </body>
 </html>

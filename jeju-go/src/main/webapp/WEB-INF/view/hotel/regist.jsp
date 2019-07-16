@@ -60,6 +60,10 @@
            	<input type="text" class="form-control" name="location2" placeholder="版档"/>
             <div class="validation"></div>
           </div>
+          <div class="form-group">
+          	<input type="text" class="form-control" name="address" placeholder="林家"/>
+            <div class="validation"></div>
+          </div>
           <br>
           <div class="form-group">
           	<h5 class="widgetheading">槛家 家俺</h5>

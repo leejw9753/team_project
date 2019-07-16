@@ -24,6 +24,18 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .mySlides {display: none}
 </style>
+<script type="text/javascript">
+function search_check(num) {
+   if (num == '1') {
+      document.getElementById("searchP").style.display = "none";
+      document.getElementById("searchI").style.display = "";   
+   } else {
+      document.getElementById("searchI").style.display = "none";
+      document.getElementById("searchP").style.display = "";
+   }
+   
+}
+</script>
 </head>
 <decorator:head />
 <body>
@@ -40,8 +52,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
               	<c:if test="${empty sessionScope.login}">
-									<li role="presentation"><a href="javascript:void(0)"
-										onclick="document.getElementById('login').style.display='block'"
+									<li role="presentation"><a href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'"
 										class="w3-bar-item w3-button">로그인</a></li>
 								</c:if>
 								<c:if test="${!empty sessionScope.login}">&nbsp;&nbsp;&nbsp;${sessionScope.login}회원님 반갑습니다.
@@ -52,7 +63,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 								</c:if>
 				<li role="presentation"><a href="index.html">Hotel</a></li>
                 <li role="presentation"><a href="blog.html">Packages</a></li>
-                <li role="presentation" class="active"><a href="contacts.html">Contact</a></li>
+                <li role="presentation"><a href="contacts.html">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -155,7 +166,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         </div>
       </div>
     </div>
-  </footer>
+</footer>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery.js"></script>
@@ -172,7 +183,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   <div id="login" class="w3-modal" style="display: none;">
          <div class="w3-modal-content w3-animate-zoom w3-padding-large">
             <div class="w3-container w3-white w3-center">
-               <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent"></i>
+               <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
                <h2 class="w3-wide">LogIn</h2>
                <p>로그인 정보를 입력하세요.</p>
                <p>
@@ -192,5 +203,68 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
             </div>
          </div>
       </div>
+      
+     <!-- 아이디/비밀번호 찾기 부분 -->
+	<form:form modelAttribute="user" method="post" action="userSearch.jeju">
+		<div id=searchid class="w3-modal" style="display: none;">
+			<div class="w3-modal-content w3-animate-zoom w3-padding-large">
+				<div class="w3-container w3-white w3-center">
+					<i
+						onclick="document.getElementById('searchid').style.display='none'"
+						class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
+					<h2 class="w3-wide">아이디/비밀번호 찾기</h2>
+					<p>인증된 이메일만 정보 찾기가 가능합니다 .</p>
+					<div style="margin-bottom: 10px;"
+						class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="search_1"
+							name="search_total" onclick="search_check(1)" checked="checked">
+						<label class="custom-control-label font-weight-bold text-white"
+							for="search_1">아이디 찾기</label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" class="custom-control-input" id="search_2"
+							name="search_total" onclick="search_check(2)"> <label
+							class="custom-control-label font-weight-bold text-white"
+							for="search_2">비밀번호 찾기</label>
+					</div>
+					<div id="searchI">
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputName_1">이름</label>
+							<div>
+								<input type="text" class="form-control" id="username"
+									name="username" placeholder="ex) 송문준">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputPhone_1">휴대폰번호</label>
+							<div>
+								<input type="text" class="form-control" id="Phone" name="Phone"
+									placeholder="ex) 01077779999">
+							</div>
+						</div>
+						<div class="form-group"></div>
+					</div>
+					<div id="searchP" style="display: none;">
+						<div class="form-group">
+							<label class="font-weight-bold text-white" for="inputId">아이디(이메일)</label>
+							<div>
+								<input type="text" class="form-control" id="userid"
+									name="userid" placeholder="ex)goodee@aaa.bbb">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<button id="searchBtn2" type="button"
+							class="btn btn-primary btn-block">확인</button>
+						<a class="btn btn-danger btn-block"
+							href="${pageContext.request.contextPath}">취소</a>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 		<button type="button"
+			class="w3-button w3-padding-large w3-green w3-margin-bottom"
+			onclick="document.getElementById('subscribe').style.display='none'">회원가입</button> -->
+	</form:form>
 </body>
 </html>
