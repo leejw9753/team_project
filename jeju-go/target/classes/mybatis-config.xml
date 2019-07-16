@@ -4,11 +4,11 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias type="logic.Item" alias="Item" />
-		<typeAlias type="logic.User" alias="User" /> -->
+		<typeAlias type="logic.Hotel" alias="Hotel" />
 	</typeAliases>
 	<mappers>
-<!-- 		<mapper resource="dao/mapper/Item.xml"/>
-		<mapper resource="dao/mapper/User.xml"/> -->
+		<mapper resource="dao/mapper/Hotel.xml"/>
+		<mapper resource="dao/mapper/Photo.xml"/>
+		<mapper resource="dao/mapper/Room.xml"/>
 	</mappers>
 </configuration>

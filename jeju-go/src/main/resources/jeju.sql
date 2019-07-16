@@ -4,14 +4,14 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS Board;
 DROP TABLE IF EXISTS Finally;
-DROP TABLE IF EXISTS photo;
 DROP TABLE IF EXISTS HReserve;
+DROP TABLE IF EXISTS photo;
 DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Room;
 DROP TABLE IF EXISTS Hotel;
+DROP TABLE IF EXISTS Love;
 DROP TABLE IF EXISTS Point;
 DROP TABLE IF EXISTS Member;
-DROP TABLE IF EXISTS PReserve;
 DROP TABLE IF EXISTS Package;
 
 
@@ -23,58 +23,77 @@ CREATE TABLE Board
 (
 	No int(5) NOT NULL,
 	userid varchar(50) NOT NULL,
-	subject varchar(30) NOT NULL,
-	content varchar(2000) NOT NULL,
+	subject varchar(100) NOT NULL,
+	content varchar(10000) NOT NULL,
 	regdate datetime,
 	ref int(5),
 	reflevel int(5),
 	refstep int(5),
-	type varchar(5),
-	type2 varchar(5),
+	type varchar(10),
+	type2 varchar(10),
 	PRIMARY KEY (No)
 );
 
 
 CREATE TABLE Finally
 (
+	no int(5) NOT NULL,
 	hno int(5) NOT NULL,
-	rname varchar(5) NOT NULL,
-	roomnum varchar(5),
+	roomnum varchar(10) NOT NULL,
+	pno int(5) NOT NULL,
+	type varchar(10),
 	total int(20),
 	userid varbinary(50),
 	repdate varchar(10),
-	checked varchar(5)
+	checked varchar(5),
+	regdate datetime,
+	point int(10) NOT NULL,
+	pnum int(5),
+	PRIMARY KEY (no)
 );
 
 
 CREATE TABLE Hotel
 (
 	no int(5) NOT NULL,
-	hname varchar(10) NOT NULL,
-	location varchar(20),
-	content varchar(2000),
-	tel varchar(10),
+	hname varchar(50) NOT NULL,
+	address varchar(200),
+	lat varchar(50),
+	lng varchar(50),
+	content varchar(10000),
+	tel varchar(30),
 	PRIMARY KEY (no)
 );
 
 
 CREATE TABLE HReserve
 (
+	no int(10) NOT NULL,
 	hno int(5) NOT NULL,
-	name varchar(5) NOT NULL,
-	roomnum varchar(5),
+	roomnum varchar(10) NOT NULL,
+	name varchar(20),
 	mon int(3),
 	day int(3),
-	subscriber varchar(10)
+	subscriber varchar(50),
+	PRIMARY KEY (no)
+);
+
+
+CREATE TABLE Love
+(
+	userid varchar(50) NOT NULL,
+	no int(5) NOT NULL,
+	type varchar(10) NOT NULL,
+	PRIMARY KEY (userid, no, type)
 );
 
 
 CREATE TABLE Member
 (
 	userid varchar(50) NOT NULL,
-	username varchar(5) NOT NULL,
+	username varchar(10) NOT NULL,
 	password varchar(200) NOT NULL,
-	phone varchar(10) NOT NULL,
+	phone varchar(30) NOT NULL,
 	PRIMARY KEY (userid)
 );
 
@@ -90,6 +109,8 @@ CREATE TABLE Package
 	startday varchar(50),
 	regdate datetime,
 	max int(5),
+	photourl varchar(50),
+	photoname varchar(50),
 	PRIMARY KEY (no)
 );
 
@@ -97,9 +118,11 @@ CREATE TABLE Package
 CREATE TABLE photo
 (
 	no int(5) NOT NULL,
-	type varchar(5) NOT NULL,
-	photourl varchar(50),
-	photoname varchar(20)
+	hno int(5) NOT NULL,
+	roomnum varchar(10) NOT NULL,
+	photourl varchar(100),
+	photoname varchar(100),
+	PRIMARY KEY (no)
 );
 
 
@@ -107,59 +130,42 @@ CREATE TABLE Point
 (
 	userid varchar(50) NOT NULL,
 	point int(10),
-	regdate datetime
-);
-
-
-CREATE TABLE PReserve
-(
-	pno int(5) NOT NULL,
-	name varchar(50),
-	tprice int(20),
-	day varchar(10),
-	checked varchar(5)
+	regdate datetime,
+	type varchar(10)
 );
 
 
 CREATE TABLE Review
 (
 	hno int(5) NOT NULL,
-	rname varchar(5) NOT NULL,
+	roomnum varchar(10) NOT NULL,
 	pno int(5) NOT NULL,
 	name varchar(50),
 	regdate datetime,
-	content varchar(1000),
-	clpoint int(2),
-	lopoint int(2),
-	prpoint int(2),
-	sepoint int(2)
+	content varchar(10000),
+	clpoint int(5),
+	lopoint int(5),
+	prpoint int(5),
+	sepoint int(5)
 );
 
 
 CREATE TABLE Room
 (
 	hno int(5) NOT NULL,
-	name varchar(5) NOT NULL,
-	price int(10),
-	convenient varchar(100),
-	bed varchar(10),
+	roomnum varchar(10) NOT NULL,
+	name varchar(20) NOT NULL,
+	price int(20),
+	convenient varchar(500),
+	bed varchar(20),
 	bedcount int(5),
 	max int(3),
-	roomnum varchar(100),
-	PRIMARY KEY (hno, name)
+	PRIMARY KEY (hno, roomnum)
 );
 
 
 
 /* Create Foreign Keys */
-
-ALTER TABLE photo
-	ADD FOREIGN KEY (no)
-	REFERENCES Hotel (no)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
 
 ALTER TABLE Room
 	ADD FOREIGN KEY (hno)
@@ -177,6 +183,14 @@ ALTER TABLE Board
 ;
 
 
+ALTER TABLE Love
+	ADD FOREIGN KEY (userid)
+	REFERENCES Member (userid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
 ALTER TABLE Point
 	ADD FOREIGN KEY (userid)
 	REFERENCES Member (userid)
@@ -185,7 +199,7 @@ ALTER TABLE Point
 ;
 
 
-ALTER TABLE PReserve
+ALTER TABLE Finally
 	ADD FOREIGN KEY (pno)
 	REFERENCES Package (no)
 	ON UPDATE RESTRICT
@@ -202,24 +216,32 @@ ALTER TABLE Review
 
 
 ALTER TABLE Finally
-	ADD FOREIGN KEY (hno, rname)
-	REFERENCES Room (hno, name)
+	ADD FOREIGN KEY (hno, roomnum)
+	REFERENCES Room (hno, roomnum)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
 
 
 ALTER TABLE HReserve
-	ADD FOREIGN KEY (hno, name)
-	REFERENCES Room (hno, name)
+	ADD FOREIGN KEY (hno, roomnum)
+	REFERENCES Room (hno, roomnum)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+
+ALTER TABLE photo
+	ADD FOREIGN KEY (hno, roomnum)
+	REFERENCES Room (hno, roomnum)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
 
 
 ALTER TABLE Review
-	ADD FOREIGN KEY (hno, rname)
-	REFERENCES Room (hno, name)
+	ADD FOREIGN KEY (hno, roomnum)
+	REFERENCES Room (hno, roomnum)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
