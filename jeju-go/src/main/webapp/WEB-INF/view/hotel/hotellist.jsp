@@ -21,7 +21,7 @@
 div.ex3 {
   background-color: white;
   width: 100%;
-  height: 500px;
+  height: 600px;
   overflow: auto;
 }
 div.left {
@@ -54,13 +54,7 @@ div.right {
 	<div class="container">
 		<div class="left">
 			<div class="col-md-4">
-				<form class="form-search"  style="width: 500px;">
-					<input class="form-control" type="text" placeholder="Search..">
-				</form>
 				<div class="panel panel-default" style="width: 500px;">
-					<div class="panel-heading">
-						<strong>Popular Posts</strong>
-					</div>
 					<div class="ex3">
 						<c:forEach items="${list}" var="hotel">
 							<hr style="width: 100%; border: solid 1px black;">
