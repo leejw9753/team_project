@@ -1,46 +1,56 @@
 package logic;
 
 public class Photo {
-	private int no;
-	private String type;
-	private String photourl;
-	private String photoname;
+   private int no;
+   private int hno;
+   private String roomnum;
+   private String photourl;
+   private String photoname;
 
-	public int getNo() {
-		return no;
-	}
+   public int getNo() {
+      return no;
+   }
 
-	public void setNo(int no) {
-		this.no = no;
-	}
+   public void setNo(int no) {
+      this.no = no;
+   }
 
-	public String getType() {
-		return type;
-	}
+   public String getPhotourl() {
+      return photourl;
+   }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+   public void setPhotourl(String photourl) {
+      this.photourl = photourl;
+   }
 
-	public String getPhotourl() {
-		return photourl;
-	}
+   public String getPhotoname() {
+      return photoname;
+   }
 
-	public void setPhotourl(String photourl) {
-		this.photourl = photourl;
-	}
+   public void setPhotoname(String photoname) {
+      this.photoname = photoname;
+   }
 
-	public String getPhotoname() {
-		return photoname;
-	}
+   public int getHno() {
+      return hno;
+   }
 
-	public void setPhotoname(String photoname) {
-		this.photoname = photoname;
-	}
+   public void setHno(int hno) {
+      this.hno = hno;
+   }
 
-	@Override
-	public String toString() {
-		return "Photo [no=" + no + ", type=" + type + ", photourl=" + photourl + ", photoname=" + photoname + "]";
-	}
+   public String getRoomnum() {
+      return roomnum;
+   }
+
+   public void setRoomnum(String roomnum) {
+      this.roomnum = roomnum;
+   }
+
+   @Override
+   public String toString() {
+      return "Photo [no=" + no + ", hno=" + hno + ", roomnum=" + roomnum + ", photourl=" + photourl + ", photoname="
+            + photoname + "]";
+   }
 
 }

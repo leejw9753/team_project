@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="../Arsha/css/magnific-popup.css">
 <link href="../Arsha/css/style.css" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .mySlides {display: none}
@@ -46,7 +47,7 @@ function search_check(num) {
           <div class="container-fluid">
             <div class="navbar-header">
               <div class="navbar-brand">
-                <a href="../user/main.jeju"><h1>JeJu Go</h1></a>
+                <a href="../user/main.jeju"><h1 style="font-family: 'Nanum Brush Script', cursive; font-size: 100px" >JeJu Go</h1></a>
               </div>
             </div>
             <div class="menu">
@@ -141,7 +142,7 @@ function search_check(num) {
           <div class="col-lg-6">
             <div class="copyright">
               <p>
-                <span>&copy; Arsha, All right reserved.</span>
+                <span>&copy; Designed by <a>ÇÑÈñ</a></span>
               </p>
               <div class="credits">
                 <!--
@@ -150,7 +151,7 @@ function search_check(num) {
                   Licensing information: https://bootstrapmade.com/license/
                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Arsha
                 -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                
               </div>
             </div>
           </div>
