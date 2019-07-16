@@ -20,10 +20,10 @@
 			<value>org.mariadb.jdbc.Driver</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>jdbc:mariadb://localhost:3306/model1</value>
+			<value>jdbc:mariadb://192.168.0.75:3306/jeju</value>
 		</property>
 		<property name="user">
-			<value>model1</value>
+			<value>jeju</value>
 		</property>
 		<property name="password">
 			<value>1234</value>
