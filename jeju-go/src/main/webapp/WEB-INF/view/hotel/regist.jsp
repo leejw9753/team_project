@@ -52,12 +52,12 @@
           </div>
           <div class="form-group">
 <!--             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
-           	<input type="text" name="location1" class="form-control" placeholder="위도"/>
+           	<input type="text" name="lat" class="form-control" placeholder="위도"/>
             <div class="validation"></div>
           </div>
           <div class="form-group">
 <!--             <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
-           	<input type="text" class="form-control" name="location2" placeholder="경도"/>
+           	<input type="text" class="form-control" name="lng" placeholder="경도"/>
             <div class="validation"></div>
           </div>
           <div class="form-group">

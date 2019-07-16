@@ -37,11 +37,11 @@ public class JejuService {
 		h.setTel(tel);
 		h.setContent(request.getParameter("contents"));
 		if (hoteldao.insert(h)) {
-			uploadPhoto(h.getNo(), "0", request, mtfRequest);
+			uploadPhoto(h.getNo(), "0", "",request, mtfRequest);
 		}
 	}
 
-	private void uploadPhoto(int hno, String roomnum, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+	private void uploadPhoto(int hno, String roomnum, String type,HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		List<MultipartFile> fileList = mtfRequest.getFiles("photoname");
 
 		for (MultipartFile mf : fileList) {
@@ -53,6 +53,7 @@ public class JejuService {
 			p.setNo(photodao.maxno()+1);
 			p.setHno(hno);
 			p.setRoomnum(roomnum);
+			p.setType(type);
 			p.setPhotourl(safeFile.substring(safeFile.lastIndexOf("img/")));
 			p.setPhotoname(originFileName);
 
@@ -84,12 +85,13 @@ public class JejuService {
 		Hotel h = hoteldao.selectOne(i);
 		List<Photo> p = photodao.selectOne2(i, "0");
 		h.setPhotourl(p.get(0).getPhotourl());
+		h.setPhoto(p);
 		return h;
 	}
 
 	public void regist2(Room room, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		if (roomdao.insert(room)) {
-			uploadPhoto(room.getHno(), room.getRoomnum(), request, mtfRequest);
+			uploadPhoto(room.getHno(), room.getRoomnum(),room.getName(), request, mtfRequest);
 		}
 	}
 
@@ -106,7 +108,7 @@ public class JejuService {
 
 	public Room selectOne(Integer hno, String name) {
 		Room r = roomdao.selectOne(hno, name);
-		List<Photo> p = photodao.selectOne2(hno, name);
+		List<Photo> p = photodao.selectOne3(hno, name);
 		r.setPhoto(p);
 		r.setPhotourl(p.get(0).getPhotourl());
 		return r;

@@ -21,7 +21,8 @@
 div.ex3 {
   background-color: white;
   width: 100%;
-  height: 600px;
+  min-height: 1000px;
+  max-height: 1000px;
   overflow: auto;
 }
 div.left {
@@ -45,28 +46,29 @@ div.right {
 	<div class="container">
 		<div class="row">
 			<div class="recent">
-				<button class="btn-primarys">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3>Hotel List</h3>
+				<button class="btn-primarys" style="margin-left:45%;margin-right:45%;">
+					<h3 class="w3-center">Hotel List</h3>
 				</button>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="">
 		<div class="left">
-			<div class="col-md-4">
-				<div class="panel panel-default" style="width: 500px;">
+			<div class="">
+				<div class="panel panel-default" style="width: 100%;">
 					<div class="ex3">
 						<c:forEach items="${list}" var="hotel">
-							<hr style="width: 100%; border: solid 1px black;">
+							<hr style="width: 99%; border: solid 1px black;">
 							<div class="panel-body">
-								<div class="media">
-									<a class="media-left"><img src="${path}/${hotel.photourl}"
-										style="width: 100px; height: 100px;" alt=""></a>
-									<div class="media-body">
+								<div class="media" style="max-height:200px;">
+									<div class="media-left" style="width:30%; height:200px; box-sizing: border-box;">
+									  <img src="${path}/${hotel.photourl}" style="width: 100%; height: 100%;" alt="">
+									 </div>
+									<div class="media-body" style="box-sizing: border-box; max-height:150px;">
 										<h4 class="media-heading">
-											<a href="hoteldetail.jeju?no=${hotel.no}">${hotel.hname}</a>
+											<a href="hoteldetail.jeju?no=${hotel.no}"><b>${hotel.hname}</b></a>
 										</h4>
-										<p>${hotel.content}</p>
+										${hotel.content}
 										<div class="ficon">
 											<p>
 												<a href="hoteldetail.jeju?no=${hotel.no}" alt="">보러가기</a> <i
@@ -82,12 +84,13 @@ div.right {
 								</div>
 							</div>
 						</c:forEach>
+                      <hr style="width: 99%; border: solid 1px black;">
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="right">
-			<div id="map" style="width: 100%; height: 600px;"></div>
+			<div id="map" style="width: 100%; height: 1000px; margin-top:3%;"></div>
 		</div>
 	</div>
 	<script>

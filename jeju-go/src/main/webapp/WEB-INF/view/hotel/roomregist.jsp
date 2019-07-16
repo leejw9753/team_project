@@ -18,7 +18,8 @@
         </div>
         <div id="sendmessage">등록완료</div>
         <div id="errormessage"></div>
-        <form name="registerform" method="post" action="register.jeju" enctype="multipart/form-data" onsubmit="return inputchk(this)">
+        <form name="registerform" method="post" action="roomregister.jeju" enctype="multipart/form-data" onsubmit="return inputchk(this)">
+          <input type="hidden" name="hno" value="${no}">
           <div class="form-group">
           	<h5 class="widgetheading">사진</h5><input multiple="multiple" type="file" name="photoname">
             <div class="validation"></div>

@@ -10,7 +10,7 @@ import logic.Room;
 
 public interface RoomMapper {
 
-	@Insert("insert into room(hno,roomnum,price,convenient,bed,bedcount,max,roomnum) values(#{hno},#{roomnum},#{price},#{convenient},#{bed},#{bedcount},#{max},#{roomnum})")
+	@Insert("insert into room(hno,roomnum,name,price,convenient,bed,bedcount,max) values(#{hno},#{roomnum},#{name},#{price},#{convenient},#{bed},#{bedcount},#{max})")
 	boolean insert(Room room);
 
 	@Select("select * from room where hno = #{no}")

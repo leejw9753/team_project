@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("user")
-public class HomeController {
+public class Homecontroller {
    @RequestMapping("*")
    public ModelAndView Home() {
       ModelAndView mav = new ModelAndView();

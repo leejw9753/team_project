@@ -64,8 +64,8 @@ public class HotelController {
 		return mav;
 	}
 	
-	@PostMapping("register2")
-	public ModelAndView register2(Room room,HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+	@PostMapping("roomregister")
+	public ModelAndView roomregister(Room room,HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		ModelAndView mav = new ModelAndView();
 		service.regist2(room,request,mtfRequest);
 		

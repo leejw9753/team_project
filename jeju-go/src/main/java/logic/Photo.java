@@ -6,6 +6,15 @@ public class Photo {
 	private String roomnum;
 	private String photourl;
 	private String photoname;
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public int getNo() {
 		return no;
@@ -50,7 +59,7 @@ public class Photo {
 	@Override
 	public String toString() {
 		return "Photo [no=" + no + ", hno=" + hno + ", roomnum=" + roomnum + ", photourl=" + photourl + ", photoname="
-				+ photoname + "]";
+				+ photoname + ", type=" + type + "]";
 	}
 
 }
