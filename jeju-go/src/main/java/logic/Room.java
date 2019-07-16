@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Room {
 	private int hno;
+	private String roomnum;
 	private String name;
 	private int price;
 	private String convenient;
 	private String bed;
 	private int bedcount;
 	private int max;
-	private String roomnum;
 	List<Photo> photo;
 	private String photourl;
 
@@ -20,12 +20,6 @@ public class Room {
 
 	public void setPhotourl(String photourl) {
 		this.photourl = photourl;
-	}
-
-	@Override
-	public String toString() {
-		return "Room [hno=" + hno + ", name=" + name + ", price=" + price + ", convenient=" + convenient + ", bed="
-				+ bed + ", bedcount=" + bedcount + ", max=" + max + ", roomnum=" + roomnum + ", photo=" + photo + "]";
 	}
 
 	public List<Photo> getPhoto() {
@@ -99,5 +93,14 @@ public class Room {
 	public void setRoomnum(String roomnum) {
 		this.roomnum = roomnum;
 	}
+
+	@Override
+	public String toString() {
+		return "Room [hno=" + hno + ", roomnum=" + roomnum + ", name=" + name + ", price=" + price + ", convenient="
+				+ convenient + ", bed=" + bed + ", bedcount=" + bedcount + ", max=" + max + ", photo=" + photo
+				+ ", photourl=" + photourl + "]";
+	}
+	
+	
 
 }

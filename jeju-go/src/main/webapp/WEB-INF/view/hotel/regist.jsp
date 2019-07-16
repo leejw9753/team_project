@@ -41,8 +41,11 @@
 			<tr><td>전화번호</td>
 				<td><input type="text" name="tel1"> - <input type="text" name="tel2"> - <input type="text" name="tel3"></td>
 			</tr>
+			<tr><td>주소</td>
+				<td>주소: <input type="text" name="address"></td>
+			</tr>
 			<tr><td>위치</td>
-				<td>위도: <input type="text" name="location1">&nbsp;경도: <input type="text" name="location2"></td>
+				<td>위도: <input type="text" name="lat">&nbsp;경도: <input type="text" name="lng"></td>
 			</tr>
 			<tr><td>숙소사진</td>
 				<td colspan="2"><input multiple="multiple" type="file" name="photoname"></td>

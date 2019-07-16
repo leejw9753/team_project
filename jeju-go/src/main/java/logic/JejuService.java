@@ -89,7 +89,7 @@ public class JejuService {
 
 	public void regist2(Room room, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		if (roomdao.insert(room)) {
-			uploadPhoto(room.getHno(), room.getName(), request, mtfRequest);
+			uploadPhoto(room.getHno(), room.getRoomnum(), request, mtfRequest);
 		}
 	}
 
