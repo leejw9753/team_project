@@ -29,18 +29,19 @@ public class JejuService {
 		Hotel h = new Hotel();
 		String tel = request.getParameter("tel1") + "-" + request.getParameter("tel2") + "-"
 				+ request.getParameter("tel3");
-		String location = request.getParameter("location1") + "-" + request.getParameter("location2");
 		h.setNo(hoteldao.maxno() + 1);
+		h.setAddress(request.getParameter("address"));
+		h.setLat(request.getParameter("lat"));
+		h.setLng(request.getParameter("lng"));
 		h.setHname(request.getParameter("hname"));
 		h.setTel(tel);
-		h.setLocation(location);
 		h.setContent(request.getParameter("contents"));
 		if (hoteldao.insert(h)) {
-			uploadPhoto(h.getNo(), "¼÷¼Ò", request, mtfRequest);
+			uploadPhoto(h.getNo(), "0", request, mtfRequest);
 		}
 	}
 
-	private void uploadPhoto(int no, String type, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+	private void uploadPhoto(int hno, String roomnum, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		List<MultipartFile> fileList = mtfRequest.getFiles("photoname");
 
 		for (MultipartFile mf : fileList) {
@@ -49,8 +50,9 @@ public class JejuService {
 			String safeFile = path + System.currentTimeMillis() + originFileName;
 
 			Photo p = new Photo();
-			p.setNo(no);
-			p.setType(type);
+			p.setNo(photodao.maxno()+1);
+			p.setHno(hno);
+			p.setRoomnum(roomnum);
 			p.setPhotourl(safeFile.substring(safeFile.lastIndexOf("img/")));
 			p.setPhotoname(originFileName);
 
@@ -80,8 +82,7 @@ public class JejuService {
 
 	public Hotel selectOne(Integer i) {
 		Hotel h = hoteldao.selectOne(i);
-		List<Photo> p = photodao.selectOne2(i, "¼÷¼Ò");
-		h.setPhoto(p);
+		List<Photo> p = photodao.selectOne2(i, "0");
 		h.setPhotourl(p.get(0).getPhotourl());
 		return h;
 	}

@@ -11,8 +11,12 @@ public class Hotel {
 	@Size(min = 1, max = 10, message = "숙소명은 1자 이상 10자 이하로 입력하세요")
 	@NotEmpty(message = "사용자 이름은 필수 입니다.")
 	private String hname;
-	@NotEmpty(message = "위치를 입력해주세요")
-	private String location;
+	@NotEmpty(message = "숙소명을 입력해주세요.")
+	private String address;
+	@NotEmpty(message = "위도를 입력해주세요")
+	private String lat;
+	@NotEmpty(message = "경도를 입력해주세요")
+	private String lng;
 	@NotEmpty(message = "숙소 정보를 입력해주세요")
 	private String content;
 	@NotEmpty(message = "숙소 전화번호를 입력해주세요")
@@ -52,14 +56,6 @@ public class Hotel {
 		this.hname = hname;
 	}
 
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
 	public String getContent() {
 		return content;
 	}
@@ -76,10 +72,34 @@ public class Hotel {
 		this.tel = tel;
 	}
 
-	@Override
-	public String toString() {
-		return "Hotel [no=" + no + ", hname=" + hname + ", location=" + location + ", content=" + content + ", tel="
-				+ tel + "]";
+	public String getAddress() {
+		return address;
 	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLat() {
+		return lat;
+	}
+
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	@Override
+	public String toString() {
+		return "Hotel [no=" + no + ", hname=" + hname + ", address=" + address + ", lat=" + lat + ", lng=" + lng
+				+ ", content=" + content + ", tel=" + tel + ", photourl=" + photourl + ", photo=" + photo + "]";
+	}
+	
 }

@@ -2,7 +2,8 @@ package logic;
 
 public class Photo {
 	private int no;
-	private String type;
+	private int hno;
+	private String roomnum;
 	private String photourl;
 	private String photoname;
 
@@ -12,14 +13,6 @@ public class Photo {
 
 	public void setNo(int no) {
 		this.no = no;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public String getPhotourl() {
@@ -38,9 +31,26 @@ public class Photo {
 		this.photoname = photoname;
 	}
 
+	public int getHno() {
+		return hno;
+	}
+
+	public void setHno(int hno) {
+		this.hno = hno;
+	}
+
+	public String getRoomnum() {
+		return roomnum;
+	}
+
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
+
 	@Override
 	public String toString() {
-		return "Photo [no=" + no + ", type=" + type + ", photourl=" + photourl + ", photoname=" + photoname + "]";
+		return "Photo [no=" + no + ", hno=" + hno + ", roomnum=" + roomnum + ", photourl=" + photourl + ", photoname="
+				+ photoname + "]";
 	}
 
 }

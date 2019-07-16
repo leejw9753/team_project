@@ -12,7 +12,7 @@ public interface HotelMapper {
 	@Select("select ifnull(max(no),0) from hotel")
 	Integer maxno();
 
-	@Insert("insert into hotel(no,hname,location,content,tel) value(#{no},#{hname},#{location},#{content},#{tel})")
+	@Insert("insert into hotel(no,hname,address,lat,lng,content,tel) value(#{no},#{hname},#{address},#{lat},#{lng},#{content},#{tel})")
 	boolean insert(Hotel h);
 
 	@Select("select no from hotel")
