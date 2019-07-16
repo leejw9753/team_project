@@ -35,7 +35,7 @@
 	<div class="container">
     <div class="row">
         <div class="recent">
-          <button class="btn-primarys"><h3>Hotel Regist</h3></button>
+          <h2 class="widgetheading" style="text-align: center;">Hotel Regist</h2>
         </div>
         <div id="sendmessage">Your message has been sent. Thank you!</div>
         <div id="errormessage"></div>
@@ -72,7 +72,7 @@
           <div class="validation"></div>
           </div>
           <br>
-          <button type="submit" class="btn btn-default" style="align-content: center;">¼÷¼Òµî·Ï</button>
+          <button type="submit" class="btn btn-default" value="¼÷¼Òµî·Ï">¼÷¼Òµî·Ï</button>
         </form>
       </div>
 	</div>

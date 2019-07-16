@@ -76,7 +76,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
             <h5 class="widgetheading">Get in touch with us</h5>
             <address>
 						<strong>Jeju Go</strong><br>
-						 서울시 금천구 가산디지털2로
+						 서울시 금천구 가산디지털2로<br>
 						</address>
             <p>
               <i class="icon-phone"></i> 02)1234-5678 <br>
@@ -107,7 +107,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
         </div>
         <div class="col-lg-3">
           <div class="widget">
-            <h5 class="widgetheading">Flickr photostream</h5>
+            <h5 class="widgetheading">Packages Photostream</h5>
             <div class="flickr_badge">
               <script type="text/javascript" src="https://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
             </div>
