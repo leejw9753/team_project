@@ -81,7 +81,7 @@ function search_check(num) {
           <div class="container-fluid">
             <div class="navbar-header">
               <div class="navbar-brand">
-                <a href="../user/main.jeju"><h1 style="font-family: 'Nanum Brush Script', cursive; font-size: 100px" >JeJu Go</h1></a>
+                <a href="../user/main.jeju"><h1 style="font-family: 'Nanum Brush Script', cursive; font-size: 100px;" >JeJu Go</h1></a>
               </div>
             </div>
             <%-- <div class="menu">
@@ -130,7 +130,6 @@ function search_check(num) {
           </li>
         </c:if>
         </ul>
-        
       </nav>
             <!-- Main -->
                <section id="main">

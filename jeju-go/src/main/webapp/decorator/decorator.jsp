@@ -42,7 +42,7 @@ function search_check(num) {
 <decorator:head />
 <body>
 <header>
-    <div class="container">
+    <div class="container" style="margin-left: 5%; margin-right: 5%; width:90%;">
       <div class="row">
         <nav class="navbar navbar-default" role="navigation">
           <div class="container-fluid">

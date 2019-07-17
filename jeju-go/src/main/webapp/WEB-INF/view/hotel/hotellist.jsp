@@ -43,7 +43,7 @@ div.right {
 </script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" style="margin-left: 5%; margin-right: 5%; width:90%;">
 		<div class="row">
 			<div class="recent">
 				<button class="btn-primarys" style="margin-left:45%;margin-right:45%;">
@@ -52,7 +52,7 @@ div.right {
 			</div>
 		</div>
 	</div>
-	<div class="">
+	<div class="container" style="margin-left: 5%; margin-right: 5%; width:90%;">
 		<div class="left">
 			<div class="">
 				<div class="panel panel-default" style="width: 100%;">
