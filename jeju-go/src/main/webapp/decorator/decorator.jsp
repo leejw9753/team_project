@@ -62,7 +62,7 @@ function search_check(num) {
 										class="w3-bar-item w3-button" style="color:black;">My Page</a>
 									<a href="${path}/user/logout.jeju" class="w3-bar-item w3-button" style="color:black;">·Î±×¾Æ¿ô</a>
 								</c:if>
-				<li role="presentation"><a href="${path }/hotel/hotellist.jeju">Hotel</a></li>
+				<li role="presentation"><a href="${path}/hotel/hotellist.jeju">Hotel</a></li>
                 <li role="presentation"><a href="#">Packages</a></li>
                 <li role="presentation"><a href="#">Contact</a></li>
               </ul>
