@@ -13,7 +13,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jeju Go</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="../Arsha/css/bootstrap.min.css" rel="stylesheet">
 <link href="../Arsha/css/responsive-slider.css" rel="stylesheet">
 <link rel="stylesheet" href="../Arsha/css/animate.css">
@@ -201,7 +200,7 @@ function search_check(num) {
                </p>
                <button type="button"
                   class="w3-button w3-padding-large w3-green w3-margin-bottom"
-                  onclick="document.getElementById('subscribe').style.display='none'">로그인</button>
+                  onclick="document.getElementById('login').style.display='none'">로그인</button>
             </div>
          </div>
       </div>

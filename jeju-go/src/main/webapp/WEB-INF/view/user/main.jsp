@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="${path}/assets/css/main.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -54,21 +55,20 @@ function search_check(num) {
          <nav class="navbar navbar-expand-sm bg-light justify-content-right">
         <ul class="navbar-nav" >
           <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('signin').style.display='block'">회원가입</a>
+          <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('signin').style.display='block'" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">회원가입</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'">로그인</a>
+            <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">로그인</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">고객센터</a>
+            <a class="nav-link" href="#" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">고객센터</a>
           </li>
         </ul>
       </nav>
             <!-- Main -->
                <section id="main">
                   <header>
-                     <h1>숙박 날짜 검색</h1>
-                     <input type="text" style="text-transform: lowercase;" placeholder="이름">
+                     <h1 style="font-family: 'Sunflower', sans-serif;">숙박 날짜 검색</h1><br>
                   </header>
                   <hr />
                   <form method="post" action="#">
