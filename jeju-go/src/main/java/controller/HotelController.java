@@ -32,7 +32,9 @@ public class HotelController {
 	@PostMapping("register")
 	public ModelAndView register(HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		ModelAndView mav = new ModelAndView();
-		service.regist(request, mtfRequest);
+		int hno = service.regist(request, mtfRequest);
+		
+		mav.setViewName("redirect:hoteldetail.jeju?no="+hno);
 
 		return mav;
 	}
@@ -68,6 +70,8 @@ public class HotelController {
 	public ModelAndView roomregister(Room room,HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		ModelAndView mav = new ModelAndView();
 		service.regist2(room,request,mtfRequest);
+		
+		mav.setViewName("redirect:hoteldetail.jeju?no="+room.getHno());
 		
 		return mav;
 	}

@@ -2,6 +2,8 @@ package logic;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import dao.HotelDao;
 import dao.PhotoDao;
 import dao.RoomDao;
+import dao.UserDao;
 
 @Service
 public class JejuService {
@@ -24,8 +27,10 @@ public class JejuService {
 	PhotoDao photodao;
 	@Autowired
 	RoomDao roomdao;
+	@Autowired
+	UserDao userdao;
 
-	public void regist(HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+	public int regist(HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		Hotel h = new Hotel();
 		String tel = request.getParameter("tel1") + "-" + request.getParameter("tel2") + "-"
 				+ request.getParameter("tel3");
@@ -37,11 +42,13 @@ public class JejuService {
 		h.setTel(tel);
 		h.setContent(request.getParameter("contents"));
 		if (hoteldao.insert(h)) {
-			uploadPhoto(h.getNo(), "0", "",request, mtfRequest);
+			uploadPhoto(h.getNo(), "0", "", request, mtfRequest);
 		}
+		return h.getNo();
 	}
 
-	private void uploadPhoto(int hno, String roomnum, String type,HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
+	private void uploadPhoto(int hno, String roomnum, String type, HttpServletRequest request,
+			MultipartHttpServletRequest mtfRequest) {
 		List<MultipartFile> fileList = mtfRequest.getFiles("photoname");
 
 		for (MultipartFile mf : fileList) {
@@ -50,7 +57,7 @@ public class JejuService {
 			String safeFile = path + System.currentTimeMillis() + originFileName;
 
 			Photo p = new Photo();
-			p.setNo(photodao.maxno()+1);
+			p.setNo(photodao.maxno() + 1);
 			p.setHno(hno);
 			p.setRoomnum(roomnum);
 			p.setType(type);
@@ -91,7 +98,7 @@ public class JejuService {
 
 	public void regist2(Room room, HttpServletRequest request, MultipartHttpServletRequest mtfRequest) {
 		if (roomdao.insert(room)) {
-			uploadPhoto(room.getHno(), room.getRoomnum(),room.getName(), request, mtfRequest);
+			uploadPhoto(room.getHno(), room.getRoomnum(), room.getName(), request, mtfRequest);
 		}
 	}
 
@@ -113,4 +120,33 @@ public class JejuService {
 		r.setPhotourl(p.get(0).getPhotourl());
 		return r;
 	}
+
+	public void userCreate(User user) {
+		String password = messageDigest(user.getPassword());
+		user.setPassword(password);
+		// user.setEmail(encrypt(user.getEmail(),user.getPassword()));
+		userdao.insert(user);
+	}
+
+	public String messageDigest(String password) {
+		byte[] plain = password.getBytes();
+		byte[] hash = null;
+		String result = "";
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+			hash = md.digest(plain);// 해쉬암호 생성
+			for (byte b : hash) {
+				result += String.format("%02X", b); // 핵사값으로 출력(16진수)
+			}
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public User userSelect(String userId) {
+		return userdao.selectOne(userId);
+	}
+
 }

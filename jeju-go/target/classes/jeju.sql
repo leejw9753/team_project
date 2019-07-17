@@ -117,7 +117,7 @@ CREATE TABLE Package
 
 CREATE TABLE photo
 (
-	no int(5) NOT NULL,
+	no  NOT NULL,
 	hno int(5) NOT NULL,
 	roomnum varchar(10) NOT NULL,
 	photourl varchar(100),

@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jeju Go</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="../Arsha/css/bootstrap.min.css" rel="stylesheet">
 <link href="../Arsha/css/responsive-slider.css" rel="stylesheet">
 <link rel="stylesheet" href="../Arsha/css/animate.css">
@@ -56,15 +57,14 @@ function search_check(num) {
 									<li role="presentation"><a href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'"
 										class="w3-bar-item w3-button">·Î±×ÀÎ</a></li>
 								</c:if>
-								<c:if test="${!empty sessionScope.login}">&nbsp;&nbsp;&nbsp;${sessionScope.login}È¸¿ø´Ô ¹Ý°©½À´Ï´Ù.
-				<a href="${path}/model2/member/main.me"
-										class="w3-bar-item w3-button">My Page</a>
-									<li role="presentation"><a href="${path}/model2/member/logout.me"
-										class="w3-bar-item w3-button">·Î±×¾Æ¿ô</a></li>
+								<c:if test="${!empty sessionScope.login}"><b style="color:black;">&nbsp;&nbsp;&nbsp;${sessionScope.login.username}È¸¿ø´Ô ¹Ý°©½À´Ï´Ù.</b>
+									<a href="${path}/user/mypage.jeju"
+										class="w3-bar-item w3-button" style="color:black;">My Page</a>
+									<a href="${path}/user/logout.jeju" class="w3-bar-item w3-button" style="color:black;">·Î±×¾Æ¿ô</a>
 								</c:if>
-				<li role="presentation"><a href="index.html">Hotel</a></li>
-                <li role="presentation"><a href="blog.html">Packages</a></li>
-                <li role="presentation"><a href="contacts.html">Contact</a></li>
+				<li role="presentation"><a href="${path }/hotel/hotellist.jeju">Hotel</a></li>
+                <li role="presentation"><a href="#">Packages</a></li>
+                <li role="presentation"><a href="#">Contact</a></li>
               </ul>
             </div>
           </div>
