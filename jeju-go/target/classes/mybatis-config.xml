@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- src/main/resources/mybatis-config.xml -->
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
@@ -9,5 +10,6 @@
 		<mapper resource="dao/mapper/Hotel.xml"/>
 		<mapper resource="dao/mapper/Photo.xml"/>
 		<mapper resource="dao/mapper/Room.xml"/>
+		<mapper resource="dao/mapper/User.xml"/>
 	</mappers>
-</configuration> 
+</configuration>

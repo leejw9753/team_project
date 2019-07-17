@@ -19,7 +19,7 @@ public class RoomDao {
 	private Map<String, Object> param = new HashMap<String, Object>();
 
 	public boolean insert(Room room) {
-
+		
 		return sqlSession.getMapper(RoomMapper.class).insert(room);
 	}
 

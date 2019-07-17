@@ -11,17 +11,36 @@
 <html>
    <head>
 <title>Jeju Go!</title>
+<script>
+ 
+	function passchk(f) {
+		if (f.password.value != f.checkpassword.value) {
+			alert("비밀번호가 일치하지 않습니다");
+			return false;
+		}
+		return true;
+	}
+
+	function loginchk(f) {
+		if (f.userid.value == "") {
+			alert("아이디를 입력해주세요");
+			return false;
+		}
+		if (f.password.value == "") {
+			alert("아이디를 입력해주세요");
+			return false;
+		}
+		return true;
+	}
+</script>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="${path}/assets/css/main.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../Arsha/css/animate.css">
-<link rel="stylesheet" href="../Arsha/css/font-awesome.min.css">
-<link rel="stylesheet" href="../Arsha/css/magnific-popup.css">
 <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
-<link href="../Arsha/css/style.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -62,50 +81,25 @@ function search_check(num) {
           <div class="container-fluid">
             <div class="navbar-header">
               <div class="navbar-brand">
-                <a href="../user/main.jeju"><h1 style="font-family: 'Nanum Brush Script', cursive; font-size: 100px" >JeJu Go</h1></a>
+                <a href="../user/main.jeju"><h1 style="font-family: 'Nanum Brush Script', cursive; font-size: 100px;" >JeJu Go</h1></a>
               </div>
             </div>
-            <div class="menu">
+            <%-- <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
-              	<c:if test="${empty sessionScope.login}">
-					<li role="presentation">
-					<a href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'" style="font-family: 'Sunflower', sans-serif; font-size: 15px; font-weight: bold;">로그인</a>
-					</li>
-					 <div id="login" class="w3-modal" style="display: none;">
-         <div class="w3-modal-content w3-animate-zoom w3-padding-large">
-            <div class="w3-container w3-white w3-center">
-               <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
-               <h2 class="w3-wide">LogIn</h2>
-               <p>로그인 정보를 입력하세요.</p>
-               <p>
-                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="text"
-                     placeholder="아이디(이메일)">
-               </p>
-               <p>
-                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="password"
-                     placeholder="비밀번호">
-               </p>
-               <p>
-               <a class="w3-button w3-padding-large w3-green w3-margin-bottom" href="javascript:void(0)" onclick="document.getElementById('searchid').style.display='block'">아이디/비밀번호 찾기</a>
-               </p>
-               <button type="button"
-                  class="w3-button w3-padding-large w3-green w3-margin-bottom"
-                  onclick="document.getElementById('subscribe').style.display='none'">로그인</button>
-            </div>
-         </div>
-      </div>
+               <c:if test="${empty sessionScope.login}">
+									<li role="presentation"><a href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'"
+										class="w3-bar-item w3-button">로그인</a></li>
 								</c:if>
-								<c:if test="${!empty sessionScope.login}">&nbsp;&nbsp;&nbsp;${sessionScope.login}회원님 반갑습니다.
-				<a href="${path}/model2/member/main.me"
-										class="w3-bar-item w3-button">My Page</a>
-									<li role="presentation"><a href="${path}/model2/member/logout.me"
-										class="w3-bar-item w3-button">로그아웃</a></li>
+								<c:if test="${!empty sessionScope.login}"><b style="color:black;">&nbsp;&nbsp;&nbsp;${sessionScope.login.username}회원님 반갑습니다.</b>
+									<a href="${path}/user/mypage.jeju"
+										class="w3-bar-item w3-button" style="color:black;">My Page</a>
+									<a href="${path}/user/logout.jeju" class="w3-bar-item w3-button" style="color:black;">로그아웃</a>
 								</c:if>
-				<li role="presentation"><a href="index.html">Hotel</a></li>
-                <li role="presentation"><a href="blog.html">Packages</a></li>
-                <li role="presentation"><a href="contacts.html">Contact</a></li>
+				<li role="presentation"><a href="${path }/hotel/hotellist.jeju">Hotel</a></li>
+                <li role="presentation"><a href="#">Packages</a></li>
+                <li role="presentation"><a href="#">Contact</a></li>
               </ul>
-            </div>
+            </div> --%>
           </div>
         </nav>
       </div>
@@ -115,15 +109,26 @@ function search_check(num) {
          <div id="wrapper">
          <nav class="navbar navbar-expand-sm bg-light justify-content-right">
         <ul class="navbar-nav" >
+        <c:if test="${empty sessionScope.login}">
           <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('signin').style.display='block'" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">회원가입</a>
           </li>
-         <!--  <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="document.getElementById('login').style.display='block'" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">로그인</a>
-          </li> -->
+          </li>
+        </c:if>
+        <li class="nav-item">
+            <a class="nav-link" href="${path}/hotel/hotellist.jeju" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">호텔소개</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#" style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">고객센터</a>
           </li>
+          
+          <c:if test="${sessionScope.login.userid == 'admin'}">
+          <li class="nav-item">
+          <a class="nav-link" href="${path}/hotel/regist.jeju"style="font-family: 'Sunflower', sans-serif; font-size: 20px; font-weight: bold;">숙소등록</a>
+          </li>
+        </c:if>
         </ul>
       </nav>
             <!-- Main -->
@@ -153,24 +158,25 @@ function search_check(num) {
                <i onclick="document.getElementById('signin').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
                <h2 class="w3-wide">Sign In</h2>
                <p>회원가입에 필요한 정보를 입력하세요.</p>
+               <form:form modelattribute="user" name="f" action="userEntry.jeju" method="post" onsubmit="return passchk(this)">
                <p>
-                  <input type="text" style="text-transform: lowercase;" placeholder="이름">
+                  <input type="text" name="username"style="text-transform: lowercase;" placeholder="이름">
                </p>
                <p>
-                  <input type="text" style="text-transform: lowercase;" placeholder="아이디(이메일)">
+                  <input type="text" name="userid" style="text-transform: lowercase;" placeholder="아이디(이메일)">
                </p>
                <p>
-                  <input type="password" style="text-transform: lowercase;" placeholder="비밀번호">
+                  <input type="password" name="password" style="text-transform: lowercase;" placeholder="비밀번호">
                </p>
                <p>
-                  <input type="password" style="text-transform: lowercase;" placeholder="비밀번호 확인">
+                  <input type="password" name="checkpassword" style="text-transform: lowercase;" placeholder="비밀번호 확인">
                </p>
                <p>
-                  <input type="text" placeholder="전화번호">
+                  <input type="text" name="phone" placeholder="전화번호">
                </p>
-               <button type="button"
-                  class="w3-button w3-padding-large w3-green w3-margin-bottom"
-                  onclick="document.getElementById('subscribe').style.display='none'">회원가입</button>
+               <button type="submit"
+                  class="w3-button w3-padding-large w3-green w3-margin-bottom">회원가입</button>
+              </form:form>
             </div>
          </div>
       </div>
@@ -180,27 +186,28 @@ function search_check(num) {
                <i onclick="document.getElementById('login').style.display='none'" class="fa fa-remove w3-button w3-xlarge w3-right w3-transparent">x</i>
                <h2 class="w3-wide">LogIn</h2>
                <p>로그인 정보를 입력하세요.</p>
+               <form:form modelattribute="user" action="login.jeju" name="lf" onsubmit="return loginchk(this)">
                <p>
-                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="text"
+                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="text" name="userid"
                      placeholder="아이디(이메일)">
                </p>
                <p>
-                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="password"
+                  <input class="w3-input w3-border" style="text-transform: lowercase;" type="password" name="password"
                      placeholder="비밀번호">
                </p>
                <p>
                <a class="w3-button w3-padding-large w3-green w3-margin-bottom" href="javascript:void(0)" onclick="document.getElementById('searchid').style.display='block'">아이디/비밀번호 찾기</a>
                </p>
-               <button type="button"
-                  class="w3-button w3-padding-large w3-green w3-margin-bottom"
-                  onclick="document.getElementById('subscribe').style.display='none'">로그인</button>
+               <button type="submit"
+                  class="w3-button w3-padding-large w3-green w3-margin-bottom">로그인</button>
+               </form:form>
             </div>
          </div>
       </div>
       <footer id="footer">
          <ul class="copyright">
             <li>&copy; 제주 고</li>
-            <li>전화번호: 02)1234-5678</li>
+            <li>전화번호: <a href="http://html5up.net">02)1234-5678</a></li>
             <li>주소: 서울시 금천구 가산디지털2로 </li>
          </ul>
       </footer>

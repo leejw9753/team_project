@@ -9,15 +9,15 @@ import logic.Hotel;
 
 public interface HotelMapper {
 
-   @Select("select ifnull(max(no),0) from hotel")
-   Integer maxno();
+	@Select("select ifnull(max(no),0) from hotel")
+	Integer maxno();
 
-   @Insert("insert into hotel(no,hname,address,lat,lng,content,tel) value(#{no},#{hname},#{address},#{lat},#{lng},#{content},#{tel})")
-   boolean insert(Hotel h);
+	@Insert("insert into hotel(no,hname,address,lat,lng,content,tel) value(#{no},#{hname},#{address},#{lat},#{lng},#{content},#{tel})")
+	boolean insert(Hotel h);
 
-   @Select("select no from hotel")
-   List<Integer> nolist();
-   
-   @Select("select * from hotel where no = #{no}")
-   Hotel selectOne(Integer no);
+	@Select("select no from hotel")
+	List<Integer> nolist();
+	
+	@Select("select * from hotel where no = #{no}")
+	Hotel selectOne(Integer no);
 }

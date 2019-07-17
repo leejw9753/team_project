@@ -37,7 +37,7 @@ html, body, h1, h2, h3, h4 {
    margin-top: 6px
 }
 </style>
-<script>
+<script type="text/javascript">
 var lat = null;
 var lng = null;
 // Slideshow
@@ -119,15 +119,15 @@ function showDivs(n) {
             </div>
             <div class="w3-twothird w3-container">
                <h2>
-                  <a href="roomdetail.jeju?hno=${r.hno}&name=${r.name}">${r.name}</a>
+                  <a href="roomdetail.jeju?hno=${r.hno}&name=${r.name}" style="color:black;">${r.name}</a>
                </h2>
                <p>${r.price}${r.convenient}${r.bed} / ${r.bedcount}개</p>
             </div>
          </div>
       </c:forEach>
+      <div id="map" style="width: 100%; height: 400px;"></div>
       <input type="button"
          onclick="location.href='roomregist.jeju?no=${h.no}'" value="방등록하기">
-      <div id="map" style="width: 100%; height: 400px;"></div>
    </div>
 <script>
 var markers = [];

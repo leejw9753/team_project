@@ -1,56 +1,65 @@
 package logic;
 
 public class Photo {
-   private int no;
-   private int hno;
-   private String roomnum;
-   private String photourl;
-   private String photoname;
+	private int no;
+	private int hno;
+	private String roomnum;
+	private String photourl;
+	private String photoname;
+	private String type;
 
-   public int getNo() {
-      return no;
-   }
+	public String getType() {
+		return type;
+	}
 
-   public void setNo(int no) {
-      this.no = no;
-   }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-   public String getPhotourl() {
-      return photourl;
-   }
+	public int getNo() {
+		return no;
+	}
 
-   public void setPhotourl(String photourl) {
-      this.photourl = photourl;
-   }
+	public void setNo(int no) {
+		this.no = no;
+	}
 
-   public String getPhotoname() {
-      return photoname;
-   }
+	public String getPhotourl() {
+		return photourl;
+	}
 
-   public void setPhotoname(String photoname) {
-      this.photoname = photoname;
-   }
+	public void setPhotourl(String photourl) {
+		this.photourl = photourl;
+	}
 
-   public int getHno() {
-      return hno;
-   }
+	public String getPhotoname() {
+		return photoname;
+	}
 
-   public void setHno(int hno) {
-      this.hno = hno;
-   }
+	public void setPhotoname(String photoname) {
+		this.photoname = photoname;
+	}
 
-   public String getRoomnum() {
-      return roomnum;
-   }
+	public int getHno() {
+		return hno;
+	}
 
-   public void setRoomnum(String roomnum) {
-      this.roomnum = roomnum;
-   }
+	public void setHno(int hno) {
+		this.hno = hno;
+	}
 
-   @Override
-   public String toString() {
-      return "Photo [no=" + no + ", hno=" + hno + ", roomnum=" + roomnum + ", photourl=" + photourl + ", photoname="
-            + photoname + "]";
-   }
+	public String getRoomnum() {
+		return roomnum;
+	}
+
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
+
+	@Override
+	public String toString() {
+		return "Photo [no=" + no + ", hno=" + hno + ", roomnum=" + roomnum + ", photourl=" + photourl + ", photoname="
+				+ photoname + ", type=" + type + "]";
+	}
 
 }
