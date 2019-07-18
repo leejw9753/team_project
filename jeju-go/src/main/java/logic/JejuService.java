@@ -149,4 +149,9 @@ public class JejuService {
 		return userdao.selectOne(userId);
 	}
 
+	public List<User> userList() {
+		List<User> list = userdao.list();
+		return list;
+	}
+
 }
