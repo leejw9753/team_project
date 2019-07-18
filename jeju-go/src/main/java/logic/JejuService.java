@@ -149,8 +149,12 @@ public class JejuService {
 		return userdao.selectOne(userId);
 	}
 
-	public List<User> userList() {
-		List<User> list = userdao.list();
+	public List<User> userList(HttpServletRequest request) {
+		String d = request.getParameter("delete");
+		if (d == null || d.trim().equals("")) {
+			d = null;
+		}
+		List<User> list = userdao.list(d);
 		return list;
 	}
 

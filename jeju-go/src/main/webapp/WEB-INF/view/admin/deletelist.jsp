@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
-<%@ include file="/WEB-INF/view/jspHeader.jsp"%>
+    pageEncoding="EUC-KR"%>
+<%@ include file="/WEB-INF/view/jspHeader.jsp"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +21,7 @@ div.right {
    box-sizing: border-box;
 }
 </style>
-<title>회원 목록</title>
+<title>회원 탈퇴 신청 목록</title>
 <script type="text/javascript">
    function allchkbox(allchk) {
       var chks = document.getElementsByName("idchks");
@@ -32,7 +32,7 @@ div.right {
 </script>
 </head>
 <body>
-	<div class="container"
+<div class="container"
 		style="margin-left: 5%; margin-right: 5%; width: 90%;">
 		<div class="left">
 			<div class="col-md-4" style="width: 17%">
@@ -50,7 +50,7 @@ div.right {
 		</div>
 		<div class="right">
 			<button class="btn-primarys">
-				<h2 class="widgetheading" style="text-align: center;">회원 목록</h2>
+				<h2 class="widgetheading" style="text-align: center;">탈퇴 신청 회원 목록</h2>
 			</button>
 			<table>
 				<tr style="color: black;">
@@ -58,20 +58,20 @@ div.right {
 					<th>이름</th>
 					<th>전화</th>
 					<th>&nbsp;</th>
-					<!-- <th><input type="checkbox" name="allchk"
-						onchange="allchkbox(this)"></th> -->
+					<th><input type="checkbox" name="allchk"
+						onchange="allchkbox(this)"></th>
 				</tr>
 				<c:forEach items="${list}" var="user">
+				<c:if test="${!empty user.delete}">
 					<tr style="color: black;">
 						<td>${user.userid}</td>
 						<td>${user.username}</td>
 						<td>${user.phone}</td>
-						<td><a href="../user/update.jeju?id=${user.userid}">수정</a> <a
-							href="../user/delete.jeju?id=${user.userid}">강제탈퇴</a> <a
-							href="../user/mypage.jeju?id=${user.userid}">회원정보</a></td>
-					<%-- 	<td><input type="checkbox" name="idchks"
-							value="${user.userid}"></td> --%>
+						<th>&nbsp;</th>
+						<td><input type="checkbox" name="idchks"
+							value="${user.userid}"></td>
 					</tr>
+				</c:if>	
 				</c:forEach>
 			</table>
 		</div>

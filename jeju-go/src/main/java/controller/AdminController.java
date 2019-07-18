@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,10 @@ public class AdminController {
 	      return mav;
 	   }
 	
-	@RequestMapping("list")
-	public ModelAndView list(HttpSession session) {
+	@RequestMapping({"list","deletelist"})
+	public ModelAndView list(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		List<User> list = service.userList();
+		List<User> list = service.userList(request);
 		mav.addObject("list", list);
 		return mav;
 	}

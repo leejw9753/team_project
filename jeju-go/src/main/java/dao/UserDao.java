@@ -27,8 +27,10 @@ public class UserDao {
 		return sqlSession.getMapper(UserMapper.class).selectOne(userId);
 	}
 
-	public List<User> list() {
-		return sqlSession.selectList(NS+"list");
+	public List<User> list(String d) {
+		param.clear();
+		param.put("delete", d);
+		return sqlSession.selectList(NS+"list",param);
 	}
 	
 	

@@ -4,5 +4,10 @@
 <mapper namespace="dao.mapper.UserMapper">
 	<select id="list"  parameterType="map" resultType="User">
 		select * from member
+		<where>
+			<if test="delete != null">
+				and delete='Y'
+			</if>
+		</where>
 	</select>
 </mapper>

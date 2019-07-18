@@ -11,6 +11,14 @@ public class User {
 	private String password;
 	@NotEmpty(message = "핸드폰번호를 입력해주세요")
 	private String phone;
+	private String delete;
+	public String getDelete() {
+		return delete;
+	}
+
+	public void setDelete(String delete) {
+		this.delete = delete;
+	}
 
 	public String getUserid() {
 		return userid;
@@ -47,7 +55,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", phone=" + phone
-				+ "]";
+				+ ", delete=" + delete + "]";
 	}
 
 }
